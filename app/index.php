@@ -13,10 +13,14 @@ require_once(ABSPATH."/controller/HomeController.php");
 $class = ucfirst($pathT[0]."Controller");
 $method = $pathT[1];
 
-if(!class_exists($class,false)){
+$params = array_slice($pathT,2);
+if(!class_exists($class,false)||(!method_exists(new $class,$method))){
 	$class = "ErrorController";
 	$method = "notFound";
 }
-call_user_func(array(new $class,$method));
+echo "<pre>";
+var_dump(getenv("DBPASSWORD"));
+echo "</pre>";
+call_user_func_array(array(new $class,$method),$params);
 
 ?>

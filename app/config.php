@@ -9,10 +9,13 @@
 	define('HOSTNAME','localhost');
 	
 	//Data Base User Name
-	define('DBUSER',$_ENV['DBUSERNAME']);
+	define('DBUSER',getenv("DBUSERNAME"));
+
+	//Data base name
+	define('DBNAME','forumsi');
 
 	//Data Base password
-	define('DBPASSWORD',$_ENV['DBPASSWORD']);
+	define('DBPASSWORD',getenv('DBPASSWORD'));
 
 	define('DEBUG',true);
 	include ABSPATH."/load.php";
