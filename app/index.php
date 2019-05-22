@@ -23,4 +23,3 @@ var_dump(getenv("DBPASSWORD"));
 echo "</pre>";
 call_user_func_array(array(new $class,$method),$params);
 
-?>
