@@ -3,7 +3,7 @@
     require_once("../app/core/Controller.php");
     class HomeController extends Controller{
         function index($name='',$othername=''){
-            $user = $this->loadModel('User');
+            $user = $this->loadModel('Usuario');
             $user->name = $name;
             $this->view('home/login',['name'=>$name]);
         }

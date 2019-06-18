@@ -3,24 +3,25 @@
 
 class Connection
 {
-    private static $connection;
-    public function __construct()
+    private static $connection = null;
+    public static function getConnection()
     {
-        if($this->connection()){
+        if(Connection::$connection == null) {
 
-        }
-        try {
-            $this->connection = new PDO('mysql:host=' . HOSTNAME . ';dbname=' . DBNAME, DBUSER, DBPASSWORD);
+            try {
+                Connection::$connection = new PDO('mysql:host=' . HOSTNAME . ';dbname=' . DBNAME, DBUSER, DBPASSWORD);
 
-        } catch (PDOException $e) {
-            var_dump($e);
-            die();
+            } catch (PDOException $e) {
+                var_dump($e);
+                die();
+            }
         }
+        return Connection::$connection;
     }
 
-    public function close()
+    public static function close()
     {
-        $this->connection = null;
+        Connection::$connection = null;
     }
 
 }

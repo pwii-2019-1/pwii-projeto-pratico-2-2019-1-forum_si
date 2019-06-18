@@ -1,7 +1,7 @@
 <?php
 
 
-class AlunoModel
+class AlunoModel extends UsuarioModel
 {
 
 }

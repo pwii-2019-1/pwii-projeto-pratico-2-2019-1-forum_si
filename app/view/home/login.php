@@ -3,7 +3,7 @@
 	<h1 class="center-align">Login</h1>
     <div class="row">
         <div class="col s1 m3"></div>
-        <form class="col s10 m6" action="<?=LINK?>/usuario/entrar" method="POST">
+        <form class="col s10 m6" action="<?=LINK?>/usuario/logar" method="POST">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="email" name="email" placeholder="Digite o seu e-mail" type="email" class="validate" required>

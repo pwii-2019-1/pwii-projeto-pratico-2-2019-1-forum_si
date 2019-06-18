@@ -4,6 +4,7 @@
 class Controller
 {
     protected function loadModel($model){
+        $model = $model."Model";
         try{
             require_once("../app/model/$model.php");
             return new $model();
@@ -16,6 +17,7 @@ class Controller
         try {
             require_once "../app/view/layout/header.php";
             require_once "../app/view/$view.php";
+            require_once "../app/view/layout/footer.php";
         }catch (Exception $ex){
             die($ex->getMessage()."<br>Error Code: ".$ex->getCode());
         }

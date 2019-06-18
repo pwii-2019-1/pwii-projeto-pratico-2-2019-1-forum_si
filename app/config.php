@@ -9,13 +9,13 @@
 	define('HOSTNAME','localhost');
 	
 	//Data Base User Name
-	define('DBUSER',getenv("DBUSERNAME"));
+	define('DBUSER',"root");
 
 	//Data base name
 	define('DBNAME','forumsi');
 
 	//Data Base password
-	define('DBPASSWORD',getenv('DBPASSWORD'));
+	define('DBPASSWORD',"cronos28#");
 
 	define('DEBUG',true);
 	include ABSPATH."/load.php";
