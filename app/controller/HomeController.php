@@ -1,8 +1,11 @@
 <?php
-    require_once(ABSPATH."/util/Connection.php");
+    require_once("../app/util/Connection.php");
+    require_once("../app/core/Controller.php");
     class HomeController extends Controller{
-        function Index(){
-            $this->renderView("home.php");
+        function index($name='',$othername=''){
+            $user = $this->loadModel('User');
+            $user->name = $name;
+            $this->view('home/login',['name'=>$name]);
         }
         function teste($test){
             echo "<h3>It worked! $test</h3>";

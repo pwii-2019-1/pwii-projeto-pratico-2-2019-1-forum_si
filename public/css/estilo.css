@@ -1,0 +1,109 @@
+body{
+    font-family: 'Krub', sans-serif;
+}
+
+.logo{
+    width: 190px;
+    vertical-align: middle;
+}
+
+.center-vertical{
+    vertical-align: middle;    
+}
+
+.conteudo{
+    min-height: 77vh;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background: #f4f4f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cecece;
+}
+
+.cor{
+    color: white;
+}
+
+.estilo {
+	display:flex;
+	text-decoration: none;
+}
+.st_1, .st_2, .st_3 {
+	flex:1;
+	color:#FFFFFF;
+}
+.st_1 {
+
+	border-top:8px solid #4fc3f7;
+}
+.st_2 {
+
+	border-top:8px solid #039be5;
+}
+.st_3 {
+	border-top:8px solid #01579b;
+}
+
+@media (max-width:600px) {
+    .footer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .div-usuarios{
+        display: none;
+    }
+	
+    .m0{
+		display:block !important;
+	}
+
+}
+
+    .m0{
+		display:none;
+	}
+
+.collection .collection-item.avatar {
+    min-height: 60px
+}
+
+.div-usuarios{
+    height: 81vh;
+    overflow: auto;
+}
+
+.online{
+    padding: 2px !important;
+    background-color: #00bb31;
+}
+
+.espaco-esquerda{
+    margin-left: 5px;
+}
+
+.espaco-direita{
+    margin-right: 5px;
+}
+
+.nova-msg{
+    padding: 2px !important;
+    border-radius: 10px;
+    width: 30px;
+}
+
+.imgCortada {
+    width: 100%;
+    height: 176px;
+    object-fit: cover;
+    object-position: center;
+}
