@@ -7,7 +7,9 @@ $(document).ready(function(){
     $(".dropdown-trigger").dropdown();
     $('.collapsible').collapsible();
     $('select').formSelect();
-    $('.telefone').mask('(00) 00000-0000');
+    $('.telefone').mask('(00) 0 0000-0000');
+    $('.telefone_simples').mask('(00) 0000-0000');
+    $('.dois_celular').mask('(00) 0 0000-0000 / (00) 0 0000-0000');
     $('.cpf').mask('000.000.000-00');
     $('.money').mask('000.000.000.000.000,00', {reverse: true});
 });

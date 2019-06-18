@@ -3,10 +3,12 @@
 
 class Connection
 {
-
+    private static $connection;
     public function __construct()
     {
-        $connection = null;
+        if($this->connection()){
+
+        }
         try {
             $this->connection = new PDO('mysql:host=' . HOSTNAME . ';dbname=' . DBNAME, DBUSER, DBPASSWORD);
 
