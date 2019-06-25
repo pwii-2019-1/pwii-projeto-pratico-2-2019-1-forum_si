@@ -22,15 +22,6 @@
 				<a class="waves-effect waves-light btn right">Responder</a>
 			</div>
 
-		</div>
-		<div class="col s12 m1"></div>
-		<div class="col s12 m4">
-			<h5>Avisos</h5>
-			<p>Profª Lili<br>N&atilde;o Haver&aacute; Aula Quarta dia 15/05</p>
-			<h5>Avisos</h5>
-			<p>Profª Birl<br>Semana Academica de 22 a 25 de maio</p>
-			
-		</div>
-
+		</div
 	</div>
 </div>

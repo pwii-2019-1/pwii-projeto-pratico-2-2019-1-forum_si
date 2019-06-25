@@ -13,7 +13,6 @@ class App
         if($url) {
             if (file_exists("../app/controller/" . ucfirst($url[0]) . "Controller.php")) {
                 $this->controller = ucfirst($url[0])."Controller";
-                var_dump($url);
                 unset($url[0]);
             }
         }

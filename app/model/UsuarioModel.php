@@ -4,6 +4,16 @@ require_once('../app/util/Sessao.php');
 class UsuarioModel
 {
     private $idUsuario = 0;
+
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
+
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
+    }
     private $nome;
     private $email;
     private $telefone;
@@ -83,7 +93,7 @@ class UsuarioModel
 
     public function salvar()
     {
-        if ($this->id == 0) {
+        if ($this->idUsuario == 0) {
             $this->inserir();
         } else {
             $this->alterar();
@@ -123,6 +133,25 @@ class UsuarioModel
             return $stmt->fetch();
         } catch (PDOException $ex) {
             var_dump($ex);
+        }finally{
+            Connection::close();
+        }
+        return null;
+    }
+
+    public static function getUserById($id){
+        $con = Connection::getConnection();
+        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try {
+            $stmt = $con->prepare("SELECT  * from Usuario where idUsuario=:id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS,__CLASS__);
+            return $stmt->fetch();
+        } catch (PDOException $ex) {
+            var_dump($ex);
+        }finally{
+            Connection::close();
         }
         return null;
     }

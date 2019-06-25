@@ -19,5 +19,15 @@
                 header("Location: ".LINK);
             }
         }
+        function Topicos(){
+            if(isset($_SESSION['usuario'])) {
+                $this->loadModel('Usuario');
+                $user = unserialize($_SESSION['usuario']);
+                $this->view('home/index',["nome"=>$user->getNome()]);
+
+            }else{
+                header("Location: ".LINK);
+            }
+        }
     }
 ?>

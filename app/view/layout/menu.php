@@ -6,7 +6,7 @@
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down margem">
             <li><a href="<?=LINK?>/home/index">HOME</a></li>
-            <li><a href="<?=LINK?>/forum/topicos">TOPICOS</a></li>
+            <li><a href="<?=LINK?>/usuario/topicos">TOPICOS</a></li>
             <li><a href="<?=LINK?>/forum/topico">TOPICO</a></li>
             <li><a href="<?=LINK?>/usuario/perfil">PERFIL</a></li>
             <li><a href="<?=LINK?>/usuario/cadastro">CADASTRO</a></li>

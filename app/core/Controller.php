@@ -16,6 +16,7 @@ class Controller
         $css = "<link rel='stylesheet' type='text/css' href='css/index.css'/>";
         try {
             require_once "../app/view/layout/header.php";
+            require_once "../app/view/layout/menu.php";
             require_once "../app/view/$view.php";
             require_once "../app/view/layout/footer.php";
         }catch (Exception $ex){

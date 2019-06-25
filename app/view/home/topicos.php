@@ -1,50 +1,22 @@
 <div class="container">
 	<div class="row">
-		<div class="col s12 m5">
-			<h4>Criar T&oacute;pico / Avisos</h4>
-			<div class="input-field col s12">
-				<select>
-				  <option value="1">Tipo (T&oacute;pico, Aviso)</option>
-				</select>
-			</div>
-			<div class="input-field col s12">
-				<input placeholder="Titulo do T&oacute;pico" type="text" class="validate">
-			</div>
-			<div class="input-field col s12">
-				<input placeholder="Descri&ccedil;&atilde;o" type="text" class="validate">
-			</div>
-			<div class="input-field col s12">
-				<a class="waves-effect waves-light btn right"><i class="material-icons right">cloud</i>Salvar</a>
-			</div>
-			<br>
-			<h5>Visualizar T&oacute;picos</h5>
-			<p>T&oacute;pico: Como dar commit no GitHub <a>Responder</a></p>
-			<p>T&oacute;pico: Tem aula hoje? <a>Responder</a></p>
-		</div>
-		<div class="col s12 m1"></div>
-		<div class="col s12 m6">
-			<h4>Meus T&oacute;picos / Avisos</h4>
-			<p>T&oacute;pico: Com quantas faltas eu reprovo? <a>Responder</a></p>
-			<p>T&oacute;pico: Quero comprar um site. Algu&eacute;m indica Wix? <a>Responder</a></p>
-			
-			<br>
-			<h4>Editar T&oacute;pico / Avisos</h4>
-			<div class="input-field col s12">
-				<select>
-				  <option value="1">Tipo (T&oacute;pico, Aviso)</option>
-				</select>
-			</div>
-			<div class="input-field col s12">
-				<input placeholder="Titulo do T&oacute;pico" type="text" class="validate">
-			</div>
-			<div class="input-field col s12">
-				<input placeholder="Descri&ccedil;&atilde;o" type="text" class="validate">
-			</div>
-			<div class="input-field col s12">
-				<a class="waves-effect waves-light btn right"><i class="material-icons right">cloud</i>Salvar</a>
-			</div>
-	
-		</div>
-
+        <div class="row">
+            <div class="col s12 m10 offset-m1">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Card Title</span>
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
+    <div class="fixed-action-btn">
+          <a class="btn-floating blue" href="../topico/novo"><i class="material-icons">create</i></a>
+    </div>
 </div>

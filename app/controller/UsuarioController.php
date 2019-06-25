@@ -6,7 +6,10 @@ class UsuarioController extends Controller
         echo "UsuarioIndex";
     }
     public function cadastro(){
-        $this->view("usuario/cadastro");
+        if(!isset($_SESSION['usuario']))
+            $this->view("usuario/cadastro");
+        else
+            header("Location: ".LINK);
     }
     public function postCadastro(){
         $usuario = $this->loadModel("Usuario");
@@ -35,6 +38,18 @@ class UsuarioController extends Controller
         }else{
             $this->view("home/login");
         }
+    }
+
+    public function topicos(){
+        if(isset($_SESSION['usuario'])){
+            $this->view("home/topicos");
+        }else{
+            header("Location: ".LINK);
+        }
+    }
+
+    public function perfil(){
+        $usuario = $_SESSION['usuario'];
     }
     public function logout(){
         if(isset($_SESSION['usuario'])){
