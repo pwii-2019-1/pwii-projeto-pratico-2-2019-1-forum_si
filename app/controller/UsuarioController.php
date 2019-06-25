@@ -1,6 +1,5 @@
 <?php
 require_once("../app/core/Controller.php");
-
 class UsuarioController extends Controller
 {
     public function index(){
@@ -22,9 +21,26 @@ class UsuarioController extends Controller
     }
     public function logar(){
         $usuario = $this->loadModel("Usuario");
-        if(isset($_POST['email'])){
-            $usuario->setEmail($_POST['email']);
+        if(isset($_POST['usuario'])){
+            $usuario->setEmail($_POST['usuario']);
             $usuario->setSenha($_POST['senha']);
+            $logado = $usuario->logar();
+            if($logado != null){
+                $_SESSION['usuario'] = serialize($logado);
+                header("Location: ".LINK."/home/bemvindo");
+            }else {
+                Sessao::gravaMensagem("Usuario e/ou senha incorretos!");
+                $this->view("home/login");
+            }
+        }else{
+            $this->view("home/login");
         }
+    }
+    public function logout(){
+        if(isset($_SESSION['usuario'])){
+            unset($_SESSION['usuario']);
+            session_destroy();
+        }
+        header("Location: ".LINK);
     }
 }

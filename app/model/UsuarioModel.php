@@ -1,9 +1,9 @@
 <?php
 require_once('../app/util/Connection.php');
-
+require_once('../app/util/Sessao.php');
 class UsuarioModel
 {
-    private $id = 0;
+    private $idUsuario = 0;
     private $nome;
     private $email;
     private $telefone;
@@ -81,40 +81,49 @@ class UsuarioModel
         $this->moderador = $moderador;
     }
 
-    public function salvar(){
-        if($this->id == 0){
+    public function salvar()
+    {
+        if ($this->id == 0) {
             $this->inserir();
-        }else{
+        } else {
             $this->alterar();
         }
     }
 
-    public function inserir(){
+    public function inserir()
+    {
         $con = Connection::getConnection();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $con->prepare("INSERT INTO Usuario (nome,email,telefone,sexo,senha,moderador) values (:nome, :email ,:telefone ,:sexo , :senha, 0);");
         try {
-        $stmt->execute([':nome' => $this->nome,
+            $stmt->execute([':nome' => $this->nome,
                 ':nome' => $this->nome,
                 ':email' => $this->email,
                 ':sexo' => $this->sexo,
                 ':telefone' => $this->telefone,
                 'senha' => md5($this->senha)]);
-        }catch (PDOException $ex){
+        } catch (PDOException $ex) {
             echo $ex->getMessage();
         }
         echo $stmt->rowCount();
         Connection::close();
     }
 
-    public function logar(){
+    public function logar()
+    {
         $con = Connection::getConnection();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $con->prepare("SELECT  * from User where email=:email and password=:password");
-        $stmt->bindParam(':email',$this->email);
-        $stmt->bindParam(':senha',md5($this->senha));
-        $consulta = $stmt->query();
-
-        var_dump($consulta->fetchAll());
+        try {
+            $stmt = $con->prepare("SELECT  * from Usuario where email=:email and senha=:senha");
+            $stmt->bindParam(':email', $this->email);
+            $senha = md5($this->senha);
+            $stmt->bindParam(':senha', $senha);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS,__CLASS__);
+            return $stmt->fetch();
+        } catch (PDOException $ex) {
+            var_dump($ex);
+        }
+        return null;
     }
 }

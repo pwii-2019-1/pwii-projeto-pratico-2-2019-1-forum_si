@@ -2,22 +2,22 @@
     require_once("../app/util/Connection.php");
     require_once("../app/core/Controller.php");
     class HomeController extends Controller{
-        function index($name='',$othername=''){
-            $user = $this->loadModel('Usuario');
-            $user->name = $name;
-            $this->view('home/login',['name'=>$name]);
-        }
-        function teste($test){
-            echo "<h3>It worked! $test</h3>";
-        }
-        function testeDataBase(){
-
-            try {
-                $con = new Connection();
-            }catch (PDOException $e){
-                print_r($e);
+        function index(){
+            if(!isset($_SESSION['usuario'])) {
+                $this->view('home/login');
+            }else{
+                header("Location:".LINK."/home/bemvindo");
             }
+        }
+        function bemvindo(){
+            if(isset($_SESSION['usuario'])) {
+                $this->loadModel('Usuario');
+                    $user = unserialize($_SESSION['usuario']);
+                    $this->view('home/index',["nome"=>$user->getNome()]);
 
+            }else{
+                header("Location: ".LINK);
+            }
         }
     }
 ?>
